@@ -1,0 +1,10 @@
+.container .relative {
+	outline: none;
+	transform: translateY(24px) translateX(140px);
+}
+
+/* Select all label element that are placed immediately after a checked input element */
+input[type='checkbox']:checked + label {
+	text-decoration: line-through;
+	color: gray;
+}
