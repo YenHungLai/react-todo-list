@@ -2,4 +2,12 @@
 
 @tailwind components;
 
+.input {
+	@apply float-right bg-gray-300 outline-none rounded;
+}
+
+.input:focus {
+    @apply bg-blue-200;
+}
+
 @tailwind utilities;

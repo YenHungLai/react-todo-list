@@ -1,7 +1,3 @@
-/**
- * TODO:
- * - Todo item without description cannot be created
- */
 import React from 'react';
 
 const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
@@ -13,7 +9,7 @@ const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 	const toggleCheckbox = (e, id) => {
 		// Change complete property in API
 		fetch(
-			`http://localhost:9000/.netlify/functions/api/todoitems/${id}`,
+			`https://todolistapi.netlify.com/.netlify/functions/api/todoitems/${id}`,
 			{
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
@@ -48,7 +44,6 @@ const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 				>
 					{/* Make custom checkbox */}
 					<input
-						// FIXME: string 'false' will evaluate to true
 						checked={todo.complete ? true : false}
 						type='checkbox'
 						id='todo'

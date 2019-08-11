@@ -8,7 +8,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className='App container flex justify-center items-center mt-16 mx-auto'>
-				<TodoItemsContainer modalControl={this.modalControl} />
+				<TodoItemsContainer />
 			</div>
 		);
 	}

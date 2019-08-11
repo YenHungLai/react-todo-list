@@ -1,24 +1,21 @@
-/**
- * TODO:
- * - Make modal responsive
- */
-
 import React from 'react';
 import './Modal.css';
 
 const Modal = ({ open, modalControl, setTodo }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log(e.target.querySelectorAll('input'));
+		// console.log(e.target.querySelectorAll('input'));
 		const data = {};
 		e.target.querySelectorAll('input, select').forEach(item => {
 			// complete filed is string not boolean
 			data[item.name] = item.value;
 		});
-        console.log(data);
+		// Data collected is string but we want boolean
+		data.complete = data.complete === 'true' ? true : false;
+		console.log(data);
 
-        // Add item to list
-		fetch('http://localhost:9000/.netlify/functions/api/todoitems', {
+		// Add item to list
+		fetch('https://todolistapi.netlify.com/.netlify/functions/api/todoitems', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -31,9 +28,9 @@ const Modal = ({ open, modalControl, setTodo }) => {
 			.then(data => {
 				console.log(data);
 				setTodo(data);
-            });
+			});
 
-        // Close modal
+		// Close modal
 		modalControl(false);
 	};
 
@@ -48,11 +45,11 @@ const Modal = ({ open, modalControl, setTodo }) => {
 		>
 			<div
 				id='modal'
-				className='bg-white z-20 mt-32 w-1/3 h-48 rounded-lg mx-auto'
+				className='bg-white z-20 mt-32 max-w-4xl lg:w-7/12 md:w-10/12 sm:w-2/4 w-11/12 h-40 rounded-lg mx-auto'
 			>
 				<form
 					action='/'
-					className='p-5 mx-20 my-10'
+					className='p-5 lg:mx-20 md:mx-32 mx-2 my-10'
 					onSubmit={handleSubmit}
 				>
 					<div className='mb-2'>
@@ -62,17 +59,15 @@ const Modal = ({ open, modalControl, setTodo }) => {
 						<input
 							name='description'
 							type='text'
-							className='float-right bg-gray-300 outline-none focus:bg-blue-200 rounded'
+							className='input'
+							required
 						/>
 					</div>
 					<div className='mb-2'>
 						<label htmlFor='complete' className='font-bold'>
 							Completed
 						</label>
-						<select
-							name='complete'
-							className='float-right bg-gray-300 outline-none focus:bg-blue-200 rounded'
-						>
+						<select name='complete' className='input'>
 							<option value={true}>True</option>
 							<option value={false}>False</option>
 						</select>
