@@ -1,3 +1,8 @@
+/**
+ * TODO:
+ * - Does not work on phones
+ * - Delete button on hover
+ */
 import React from 'react';
 import './tailwind.css';
 import './App.css';

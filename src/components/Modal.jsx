@@ -37,7 +37,7 @@ const Modal = ({ open, modalControl, setTodo }) => {
 	return (
 		<div
 			id='backdrop'
-			className='fixed left-0 bottom-0 z-10 h-full w-full bg-gray-600 text-base'
+			className='fixed left-0 bottom-0 z-20 h-full w-full bg-gray-600 text-base'
 			style={{ display: open ? 'block' : 'none' }}
 			onClick={e => {
 				if (e.target.id === 'backdrop') modalControl(false);

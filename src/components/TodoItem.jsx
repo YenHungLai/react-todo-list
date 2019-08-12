@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoItem.css'
 
 const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 	const filteredTodos =
@@ -30,7 +31,7 @@ const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 			{filteredTodos.map((todo, key) => (
 				<div
 					key={key}
-					className='leading-loose z-10'
+					className='checkbox-container leading-loose'
 					// How to make delete button appear on hover
 					// onMouseOver={e => {
 					// 	if (e.target.nodeName === 'DIV')
@@ -47,10 +48,11 @@ const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 						checked={todo.complete ? true : false}
 						type='checkbox'
 						id='todo'
-						className='mr-3'
+						className='my-checkbox mr-3'
 						onChange={e => toggleCheckbox(e, todo.id)}
 					/>
-					<label htmlFor='todo'>{todo.description}</label>
+					<span className='checkmark' />
+					<label htmlFor='todo' className='ml-8 select-none'>{todo.description}</label>
 					<i
 						className='fas fa-trash-alt fa-xs float-right my-3 opacity-100 hover:text-gray-600'
 						onClick={() => deleteItem(todo.id)}
