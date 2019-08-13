@@ -10,4 +10,12 @@
     @apply bg-blue-200;
 }
 
+.tab-btn {
+    @apply w-40 bg-gray-200 text-center;
+}
+
+.tab-btn:focus {
+    @apply outline-none;
+}
+
 @tailwind utilities;

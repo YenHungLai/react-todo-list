@@ -631,6 +631,16 @@ video {
   background-color: #bee3f8;
 }
 
+.tab-btn {
+  width: 10rem;
+  background-color: #edf2f7;
+  text-align: center;
+}
+
+.tab-btn:focus {
+  outline: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

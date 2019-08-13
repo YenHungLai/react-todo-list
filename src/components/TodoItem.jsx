@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoItem.css'
+import './TodoItem.css';
 
 const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 	const filteredTodos =
@@ -43,19 +43,21 @@ const TodoItem = ({ todos, deleteItem, tabState, setTodo }) => {
 					// 		e.target.querySelector('i').style.opacity = '0';
 					// }}
 				>
-					{/* Make custom checkbox */}
+					{/* Made custom checkbox */}
 					<input
 						checked={todo.complete ? true : false}
 						type='checkbox'
 						id='todo'
 						className='my-checkbox mr-3'
-						onChange={e => toggleCheckbox(e, todo.id)}
+						onChange={e => toggleCheckbox(e, todo._id)}
 					/>
 					<span className='checkmark' />
-					<label htmlFor='todo' className='ml-8 select-none'>{todo.description}</label>
+					<label htmlFor='todo' className='ml-8 select-none'>
+						{todo.description}
+					</label>
 					<i
 						className='fas fa-trash-alt fa-xs float-right my-3 opacity-100 hover:text-gray-600'
-						onClick={() => deleteItem(todo.id)}
+						onClick={() => deleteItem(todo._id)}
 					/>
 				</div>
 			))}

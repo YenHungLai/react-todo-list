@@ -14,7 +14,9 @@ const TodoItemsContainer = () => {
 		// Get all todos
 		fetch('https://todolistapi.netlify.com/.netlify/functions/api/todoitems')
 			.then(res => res.json())
-			.then(data => setTodo(data));
+			.then(data => {
+				console.log(data);
+				setTodo(data)});
 	}, []);
 
 	const deleteItem = id => {

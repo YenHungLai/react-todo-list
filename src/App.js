@@ -2,6 +2,8 @@
  * TODO:
  * - Does not work on phones
  * - Delete button on hover
+ * - Clicking on the other labels will affect first todo
+ * - Hookup to database
  */
 import React from 'react';
 import './tailwind.css';
